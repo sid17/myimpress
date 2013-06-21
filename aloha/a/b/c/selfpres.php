@@ -8,6 +8,25 @@ confirm_logged_in();
 global $username1;
  $username1=$_GET['username'];
 ?>
+<?php
+ require_once("include/dbconnection.php");
+ //3.perform database  query
+$result=mysql_query("SELECT * FROM users WHERE username='$username1' ",$connection);
+if (!$result)
+die("database query failed:".mysql_error());
+//4. Use returned data
+global $selfcounter;
+global $tempcounter;
+
+while ($row=mysql_fetch_array($result))
+{
+$selfcounter=$row['selfcount'];
+$tempcounter=$row['tempcount'];
+}
+
+
+mysql_close($connection);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,9 +69,8 @@ global $username1;
               <li><a href="#about"><span style="font-size:30px"><b>ABOUT</b></span></a></li>
               <li><a href="#contact"><span style="font-size:30px"><b>CONTACT</b></span></a></li>
             </ul>
-            
              <p class="navbar-text pull-right">Logged in as <a href="#"><?php global $username;echo $username1; ?></a></p>
-             <p class="navbar-text pull-right"> <a href="logout.php">Log out</a></p>
+              <p class="navbar-text pull-right"> <a href="logout.php">Log out</a></p>
           </div><!--/.nav-collapse -->
         </div>
       </div>
@@ -66,10 +84,9 @@ global $username1;
         <div class="span3">
           <div class="well sidebar-nav" style="margin-top:150px">
             <ul class="nav nav-list" >
-              <li class=" active"><a href="selfpres.php?username=<?php echo $username1; ?>" style="height:40px;"><h4>My Presentations</h4></a></li>
+              <li class=" active"><a href="#" style="height:40px;"><h4>My Presentations</h4></a></li>
               <li class=" active"><a href="newpresentation.php?username=<?php $kj=$selfcounter+1;
               echo "{$username1}___{$kj}"; ?>&user=<?php echo $username1; ?>&pgcoun=<?php echo $selfcounter; ?>" style="height:40px;"><h4 >Create new</h4></a></li>
-             
               <li class=" active"><a href="tryaloha2.php?username=<?php echo $username1; ?>" style="height:40px;"><h4 >Templates</h4></a></li>
               
            </ul>
@@ -79,24 +96,43 @@ global $username1;
           <div class="leaderboard">
             <h1 ><span style="color:rgb(255,100,100)">Learn. Practice. Develop.</span></h1>
             <p>My Impress is a Free Application . It gives a platform to your ideas . You may use the existing templates also.</p>
-            
-          </div>
-          <div class="row-fluid">
-            <div class="span4">
-              <h2>Learn</h2>
-              <p>Learn from our free tutorials </p>
-              <p><a class="btn btn-info btn-large" href="#">Start Learning now</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Practice</h2>
-              <p> Customize and make your own presentation</p>
-              <p><a class="btn btn-info btn-large" href="#">Start practicing now</a></p>
-            </div><!--/span-->
-            <div class="span4">
-              <h2>Develop</h2>
-              <p>Visit our Existing Templates </p>
-              <p><a class="btn btn-info btn-large" href="#">Start developing now</a></p>
-            </div><!--/span-->
+  </div>
+
+<div class="row-fluid">
+  
+<?php
+echo ("<h1>Created presentations</h1>");
+if ($selfcounter==0)
+echo ("<h3>you dont have any existing created presentations</h3>");
+else
+{
+  
+  for ($i=1;$i<=$selfcounter;$i++)
+  {
+  echo(" <a style=\"margin:50px\"class=\"btn btn-info btn-large\" href=\"testt.php?username={$username1}___$i\">Presentation{$i}</a> ");
+  }
+}
+?>
+
+<?php
+echo ("<h1>Template Based  presentations</h1>");
+if ($tempcounter==0)
+echo ("<h3>you dont have any existing template  based presentations</h3>");
+else
+{
+  
+  for ($i=1;$i<=$tempcounter;$i++)
+  {
+  echo("work under process");
+  }
+}
+?>
+
+
+
+        
+          
+           
           </div><!--/row-->
           <hr>
      <footer>
@@ -104,6 +140,42 @@ global $username1;
       </footer>
 
     </div><!--/.fluid-container-->
+    
+    
+    
+
+
+
+    
+    
+    
+    
+    
+    
+   
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     <!-- Le javascript
     ================================================== -->

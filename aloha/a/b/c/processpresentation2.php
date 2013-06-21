@@ -1,4 +1,9 @@
-
+<?php
+require_once("include/session.php");
+?>
+<?php
+confirm_logged_in();
+?>
 <?php
  require_once("include/dbconnection.php");
  ?>

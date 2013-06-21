@@ -1,11 +1,3 @@
-<?php
-require_once("include/session.php");
-?>
-<?php
-confirm_logged_in();
-?>
-
-
 <!--get the username from login page for the database management-->
 <?php global $tryusername;
  $tryusername=$_GET['username']; global $i; $i=1;
@@ -20,42 +12,25 @@ confirm_logged_in();
  require_once("include/alohainclude.php"); ?> <link
  href="include/impress-demo.css" rel="stylesheet" />
 <script type="text/javascript"
-src="jquery/jquery-1.4.2.min.js"></script>
-<script type="text/javascript" src="jscolor/jscolor.js"></script>
-
-<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
-      <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-          <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> <link href="twitter-bootstrap-v2/docs/assets/css/example-fixed-layout.css" rel="stylesheet">
-
-<title>Aloha editable impress.js |
+src="jquery/jquery-1.4.2.min.js"></script><title>Aloha editable impress.js |
 presentation tool based on the power of CSS3 transforms and transitions in
-modern browsers </title> </head>
- <body style="background-color:#91CCFF;background-image:url('images/images.jpg')">
-<div id="menu" style="background-color:#E0E0E0;position:fixed;margin-top:0px;border-radius:20px;margin-left:10px;height:670px;width:150px">
- <input id="start" class="btn btn-inverse btn-large " style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
-         type="button" value="PRESENT" onclick="startprezi()"></input>
+modern browsers </title> </head> <body
+style="background-image:url('images/images.jpg')">
+<div id="impress">
+ <input id="start" style="background-color:rgb(200,200,200);width:80px;height:34px;border-radius:8px;"
+         type="button" value="click" onclick="startprezi()"></input>
 
  
- <input id="page" class="btn btn-success"style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
-         type="button" value="ADD SLIDE" onclick="addpage()"></input>
+ <input id="page" style="background-color:rgb(255,100,100);width:80px;height:34px;border-radius:8px;"
+         type="button" value="add" onclick="addpage()"></input>
  
- <input id="page" class="btn btn-danger" style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
-         type="button" value="DELETE SLIDE" onclick="deletepage()"></input>
+ <input id="page" style="background-color:rgb(1000,100,255);width:80px;height:34px;border-radius:8px;"
+         type="button" value="delete" onclick="deletepage()"></input>
  
- <input id="adjust" class="btn btn-primary" style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
-         type="button" value="POSITION" ></input>
- <label style="margin-top:10px;margin-left:15px">SLIDE COLOR</label>
- <input id="bgcolor" value="#D1F9FF" class="color {hash:true} input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px">
- <label style="margin-top:10px;margin-left:15px">BACKGROUND COLOR</label>
- <input id="pgcolor" value="#D1F9FF"  class="color {hash:true} input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px">
- <label style="margin-top:10px;">BACKGROUNDIMAGE <span style="margin-left:60px">URL</span></label>
- <input id="bgimage" placeholder="BACKGROUNDIMAGE URL" type="text"  class="input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px"></input>
+ <input id="adjust" style="background-color:rgb(20,250,100);width:80px;height:34px;border-radius:8px;"
+         type="button" value="adjust" "></input>
  
- <a href="logout.php">LOGOUT</a></div>
- <div id="aftereffect"></div>
-<div id="impress">
-  
+ 
  <?php
  require("include/dbconnection.php"); ?> <?php
 $username=$tryusername;
@@ -95,11 +70,12 @@ $tryusername; ?>">
 
 
 
-<form id="pageform" method="POST" action="addpage.php?username=<?php echo $tryusername;
+<form id="pageform" method="POST" action="addpage_.php?username=<?php echo $tryusername;
                     ?>">
               
               <textarea style="display:none" id="newid" name="newid">
               </textarea>
+              <input type="submit" value="submit"></input>
               </form>
 
 
@@ -135,10 +111,10 @@ type="text/javascript">
  require_once("include/impressdemo.php"); ?>
 <script> function startprezi() { var $ = Aloha.jQuery, $body = $('body');
 $(".step").each(function() { $(this).mahalo();}); 
-var x=document.getElementById("menu");
-//var y=document.getElementById("page");
+var x=document.getElementById("start");
+var y=document.getElementById("page");
 x.parentNode.removeChild(x);
-//y.parentNode.removeChild(y);
+y.parentNode.removeChild(y);
 
 impress().init(); } </script>
 
@@ -159,8 +135,7 @@ impress().init(); } </script>
            q="s"+(j+1);
             
             $('#newid').html(q);
-            $.post("addpage.php?username=<?php echo
-$tryusername; ?>", $("#pageform").serialize(),
+            $.post("addpage.php", $("#pageform").serialize(),
                    function(data) {
 			       if (data)
                                {
@@ -260,36 +235,7 @@ del.parentNode.removeChild(del);
 });
  });
 </script>
-<script src="jquery/jquery.js"></script>
- <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="bootstrap/js/bootstrap.js"></script>
-    <script src="/js/jquery.js"></script>  
-<script src="bootstrap/js/bootstrap-transition.js"></script>  
-<script src="bootstrap/js/bootstrap-alert.js"></script>  
-<script src="bootstrap/js/bootstrap-modal.js"></script>  
-<script src="bootstrap/js/bootstrap-dropdown.js"></script>  
-<script src="bootstrap/js/bootstrap-scrollspy.js"></script>  
-<script src="bootstrap/js/bootstrap-tab.js"></script>  
-<script src="bootstrap/js/bootstrap-tooltip.js"></script>  
-<script src="bootstrap/js/bootstrap-popover.js"></script>  
-<script src="bootstrap/js/bootstrap-button.js"></script>  
-<script src="bootstrap/js/bootstrap-collapse.js"></script>  
-<script src="bootstrap/js/bootstrap-carousel.js"></script>  
-<script src="bootstrap/js/bootstrap-typeahead.js"></script>  
-<script>
-$("#bgcolor").change(function(){
-   $("body").css("background-color",$("#bgcolor").val());
-});
-$("#pgcolor").change(function(){
-  
-  $(".step").css("background-color",$("#pgcolor").val());
-  
-});
-$("#bgimage").change(function(){
-    $("body").css('background-image','url(' + $("#bgimage").val() + ')');
-;
-});
-</script>
+
 
 
 </body> </html>

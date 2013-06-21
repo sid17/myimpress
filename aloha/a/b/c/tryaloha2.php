@@ -1,3 +1,9 @@
+<?php
+require_once("include/session.php");
+?>
+<?php
+confirm_logged_in();
+?>
 <!-- it is used as the base for the templates -->
 
 

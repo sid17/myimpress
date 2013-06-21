@@ -1,7 +1,3 @@
-
-<?php
-ob_start();
-?>
 <?php
  require_once("include/dbconnection.php");
  ?>
@@ -11,7 +7,6 @@ $lastname=$_POST['lastname'];
 $username=$_POST['username'];
 $email=$_POST['email'];
 $password=$_POST['password'];
-$cpassword=$_POST['cpassword'];
 global $efirst;
 $efirst=0;
 global $elast;
@@ -22,12 +17,6 @@ global $euser;
 $euser=0;
 global $echeck;
 $echeck=0;
-global $epass;
-$epass=0;
-if($password!=$cpassword)
-{
- $epass=1;
-}
 //check for the first name and the last name
 if (isset($_POST['firstname'])) {  
 if(empty($_POST['firstname']))
@@ -101,25 +90,16 @@ while ($row=mysql_fetch_array($res))
 }
 }
 
-
-if (!($efirst==0&&$elast==0&&$eemail==0&&$euser==0&&$echeck==0))
+echo($efirst ." ". $elast." ".   $eemail ." ". $euser." ".  $echeck);
+if (($efirst!=0&&$elast!=0&&$eemail!=0&&$euser!=0&&$echeck!=0))
 {
- header('Location:register.php?efirst='.$efirst.'&elast='.$elast.'&eemail='.$eemail.'&echeck='.$echeck.'&euser='.$euser."&epass=".$epass);
+ echo("move to register.php");
 }
-
-else{
-$sql ="INSERT INTO users(username, firstname, lastname,email,password) values ('$username','$firstname','$lastname','$email','$password')";
-mysql_select_db('test_db');
-$retval = mysql_query( $sql, $connection );
-if(! $retval )
+else
 {
-  die('Could not enter data: ' . mysql_error());
-}
-header("Location:registered.php");
+echo("registered");
 }
 mysql_close($connection);
 ?>
-<?php
-ob_flush();
-?>
+
 

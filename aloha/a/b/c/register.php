@@ -57,12 +57,38 @@
     <label class="control-label" for="firstname"><b>Firstname</b></label>
     <div class="controls">
       <input class="input-xlarge  btn-large" type="text" name="firstname" id="firstname" placeholder="First Name">
+	<?php
+	if(isset($_GET['efirst']))
+{
+  if($_GET['efirst']==1)
+  {
+   echo("<span style='color:red' >field cant be blank</span>"); 
+  }
+  else if($_GET['efirst']==2)
+  {
+    echo("<span style='color:red' >only alphabets allowed</span>");
+  }
+}
+	?>
     </div>
   </div><form class="form-horizontal">
   <div class="control-group">
     <label class="control-label" for="last name"><b>Lastname</b></label>
     <div class="controls">
       <input class="input-xlarge  btn-large" type="text" name="lastname" id="lastname" placeholder="Last Name">
+	<?php
+	if(isset($_GET['elast']))
+{
+  if($_GET['elast']==1)
+  {
+    echo("<span style='color:red' >field cant be blank</span>");
+  }
+  else if($_GET['elast']==2)
+  {
+    echo("<span style='color:red' >Only alphabets allowed</span>");
+  }
+}
+	?>
     </div>
   </div>
 
@@ -71,12 +97,42 @@
     <label class="control-label" for="username"><b>username</b></label>
     <div class="controls">
       <input class="input-xlarge  btn-large" type="text" name="username" id="username" placeholder="Username">
+	<?php
+	if(isset($_GET['euser']))
+{
+  if($_GET['euser']==1)
+  {
+    echo("<span style='color:red' >field cant be blank</span>");
+  }
+  else if($_GET['euser']==2)
+  {
+    echo("<span style='color:red' >only alphabets numbers and underscore allowed</span>");
+  }
+  else if ($_GET['euser']==3)
+  {
+    echo("<span style='color:red' >username exists . choose a different name</span>");
+  }
+}
+	?>
     </div>
   </div>
   <div class="control-group">
     <label class="control-label" for="inputEmail"><b>email</b></label>
     <div class="controls">
       <input class="input-xlarge  btn-large" type="text"  name="email" id="inputEmail" placeholder="Email">
+	<?php
+	if(isset($_GET['eemail']))
+{
+  if($_GET['eemail']==1)
+  {
+    echo("<span style='color:red' >field cant be blank</span>");
+  }
+  else if($_GET['eemail']==2)
+  {
+    echo("<span style='color:red' >enter a valid email</span>");
+  }
+}
+	?>
     </div>
   </div>
   <div class="control-group">
@@ -89,12 +145,32 @@
     <label class="control-label " for="inputcPassword"><b>confirm password</b></label>
     <div class="controls">
       <input type="password" class="input-xlarge btn-large" name="cpassword" id="inputcPassword" placeholder="confirmPassword">
+    <?php
+	if(isset($_GET['epass']))
+{
+  if($_GET['epass']==1)
+  {
+   echo("<span style='color:red' >Passwords dont match </span>") ;
+  }
+  
+}
+?>
     </div>
   </div>
   <div class="control-group">
     <div class="controls">
       <label class="checkbox">
-        <input type="checkbox">I agree the terms of use
+        <input type="checkbox" name="check">I agree the terms of use<br>
+	<?php
+	if(isset($_GET['echeck']))
+{
+  if($_GET['echeck']==1)
+  {
+   echo("<span style='color:red' >Accept the terms and conditions</span>") ;
+  }
+  
+}
+	?>
       </label>
       <button type="submit" class="btn btn-large">Sign in</button>
     </div>

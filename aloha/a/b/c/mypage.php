@@ -1,4 +1,12 @@
 <?php
+require_once("include/session.php");
+?>
+<?php
+confirm_logged_in();
+?>
+
+
+<?php
 global $tryusername;
  $tryusername=$_GET['username'];
 ?>

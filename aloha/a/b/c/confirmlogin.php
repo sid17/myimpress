@@ -2,9 +2,12 @@
 ob_start();
 ?>
 <?php
+session_start();
+?>
+<?php
  require_once("include/dbconnection.php");
- ?>
- <?php
+?>
+<?php
 $username=$_POST['username'];
 $password=$_POST['password'];
 ?>
@@ -23,6 +26,7 @@ while ($row=mysql_fetch_array($result))
 }
 if ($flag==1)
 {
+ $_SESSION['user_id']=$username;
 header("location:myhome.php?username=$username");   
 
 }

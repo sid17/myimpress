@@ -1,3 +1,9 @@
+<?php
+require_once("include/session.php");
+?>
+<?php
+confirm_logged_in();
+?>
  <!-- it is used to include the aloha configuration files -->
 
 

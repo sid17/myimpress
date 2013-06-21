@@ -1,4 +1,9 @@
-<!-- it is used to set the adjustment of the slides to the back end-->
+<?php
+require_once("include/session.php");
+?>
+<?php
+confirm_logged_in();
+?>
 
 
 
@@ -11,6 +16,7 @@
  ?>
 <?php
 $slides=$_GET["slides"];
+$usern=$_GET['username'];
 $elements = $_POST['e8'];
 $elements = explode('and', $elements);
 $posx=explode(',', $elements[5]);
@@ -31,10 +37,10 @@ for ($i=0;$i<=$slides;$i++)
     $posx[$i]=round(($posx[$i]+70)*5);
    $posy[$i]=round(($posy[$i]+70)*5);
     
-$result=mysql_query("SELECT * FROM siddhant ",$connection);
+$result=mysql_query("SELECT * FROM $usern ",$connection);
 if (!$result)
 die("database query failed:".mysql_error());
-$sql = "UPDATE siddhant ".
+$sql = "UPDATE $usern ".
        "SET posx = '$posx[$i]',posy='$posy[$i]',posz='$posz[$i]',rotx='$rotx[$i]',roty='$roty[$i]',rotz='$rotz[$i]',scale='$scale[$i]' ".
        "WHERE divid = '$id'" ;
 mysql_select_db('myimpress');

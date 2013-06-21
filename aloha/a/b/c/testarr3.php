@@ -1,6 +1,28 @@
 <?php
+require_once("include/session.php");
+?>
+<?php
+confirm_logged_in();
+?>
+
+<style>
+#container
+{
+ background: rgb(149,149,149); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(149,149,149,1) 0%, rgba(13,13,13,1) 46%, rgba(1,1,1,1) 50%, rgba(10,10,10,1) 53%, rgba(78,78,78,1) 76%, rgba(56,56,56,1) 87%, rgba(27,27,27,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(149,149,149,1)), color-stop(46%,rgba(13,13,13,1)), color-stop(50%,rgba(1,1,1,1)), color-stop(53%,rgba(10,10,10,1)), color-stop(76%,rgba(78,78,78,1)), color-stop(87%,rgba(56,56,56,1)), color-stop(100%,rgba(27,27,27,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(149,149,149,1) 0%,rgba(13,13,13,1) 46%,rgba(1,1,1,1) 50%,rgba(10,10,10,1) 53%,rgba(78,78,78,1) 76%,rgba(56,56,56,1) 87%,rgba(27,27,27,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#959595', endColorstr='#1b1b1b',GradientType=0 ); /* IE6-9 */
+
+}
+</style>
+<?php
 global $pagecount;
 $pagecount=$_GET['slides'];
+$usr=$_GET['username'];
 ?>
 
 <!DOCTYPE html>
@@ -13,21 +35,22 @@ $pagecount=$_GET['slides'];
   <script class="jsbin" src="jquery/jquery-ui1.7.2min.js"></script>  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
   <script src="jquery/jquery-1.9.1.js"></script>
   <script src="jquery/jquery-ui1.10.3.js"></script>
-  <style type="text/css">
+    <style type="text/css">
     .draggable {
       width: 140px;
       height: 190px;
-      background: #efefef;
-      border: 1px solid silver;
+      
+      
       position:relative;
+      border-radius:20px 20px 0px 0px;
     }
 
   </style>
 </head>
-<body>
-  <input type="button" onclick=" myvalues()" value="click"></input>
-   <input type="button"  id="next" value="next"></input>
-<div id="container" style="width: 2800px; height: 1400px; border: 1px solid black; position: absolute;" >
+<body style="background-color:#D2DBF7">
+  <input type="button" style="height:55px;width:120px;cursor:pointer;border-radius:20px;background-color:#2FCFF7;font-size:14px" onclick=" myvalues()" value="POSITION"></input>
+   <input type="button"  id="next" value="PRESENT" style="float:right;height:55px;width:120px;cursor:pointer;border-radius:20px;background-color:#2FCFF7;font-size:14px"></input>
+<div id="container" style="width: 2800px; height: 1400px; border: 5px solid #737373;border-radius:50px; position: absolute;margin-left:20px;margin-bottom:20px;margin-right:20px;margin-top:20px;" >
 
 <?php 
 for($j=0;$j<=$pagecount;$j++)
@@ -35,20 +58,20 @@ for($j=0;$j<=$pagecount;$j++)
   $k=$j+1;
 echo("<div class='hi' style=\"float:left ;margin:50px\">
 <div class='draggable'>
-<div  id='hello'style=\"width: 140px; height: 140px; background-color: white; cursor: move; position: absolute;border:1px solid black\">
-<p style=\"position:absolute;margin-top:50px;margin-left:50px\">slide{$k}</p>
+<div  id='hello'style=\"width: 140px; height: 140px; background-color: #4A9FF5;border-radius:20px; cursor: move; position: absolute;\">
+<p style=\"position:absolute;margin-top:50px;margin-left:50px\"><span style=\"font-family:cursive\">slide{$k}</span></p>
 <div id='count' style=\"color: black\"> </div></div>
 <form id='form'style=\"position:absolute;margin-top:140px;\">
-<label>pos-z</label>
-<input type=\"text\" id=\"posz\" value=\" \" style=\"width:10px;position:relative;display:inline\" >
-<label>scale</label>
-<input type=\"text\" id=\"scale\"  value=\" \" style=\"width:10px;position:relative;display:inline\"  >  
-<label>rot-x</label>
-<input type=\"text\" id=\"rotx\" value=\" \" style=\"width:10px;position:relative;display:inline\" > 
-<label>y</label>
-<input type=\"text\" id=\"roty\" value=\" \" style=\"width:10px;position:relative;display:inline\" > 
-<label>z</label>
-<input type=\"text\" id=\"rotz\"  value=\" \" style=\"width:10px;position:relative;display:inline\" > 
+<label><span style=\"color:#F6F2FF\">pos-z</span></label>
+<input type=\"text\" id=\"posz\" value=\" \" style=\"width:15px;position:relative;display:inline\" >
+<label><span style=\"color:#F6F2FF\">scale</span></label>
+<input type=\"text\" id=\"scale\"  value=\" \" style=\"width:15px;position:relative;display:inline\"  >  
+<label><span style=\"color:#F6F2FF\">rot-x</span></label>
+<input type=\"text\" id=\"rotx\" value=\" \" style=\"width:15px;position:relative;display:inline\" > 
+<label><span style=\"color:#F6F2FF\">y</span></label>
+<input type=\"text\" id=\"roty\" value=\" \" style=\"width:15px;position:relative;display:inline\" > 
+<label><span style=\"color:#F6F2FF\">z</span></label>
+<input type=\"text\" id=\"rotz\"  value=\" \" style=\"width:15px;position:relative;display:inline\" > 
 </form>
 </div>  
 </div> ");
@@ -84,7 +107,7 @@ d{$z}.draggable({
             p = $(this).position();
             myposy[{$z}]=p.top;
             myposx[{$z}]=p.left;
-            e{$z}.html(p.left + ', ' + p.top); 
+            //e{$z}.html(p.left + ', ' + p.top); 
 
   }
 });
@@ -211,16 +234,18 @@ function myvalues()
 
          $.post('test.php?slides=<?php
             echo($pagecount);
-            ?>', {e8: e8},function(data)
+            ?>&username=<?php echo($usr); ?>', {e8: e8},function(data)
   {
     if (data) 
       {
+       
       $(document).ready(function()
  {
  $('#next').click(function()
 {
             
-    var url="template4.php?username=siddhant"
+    var url="template4.php?username=<?php echo $usr;
+                    ?>"
     window.location = url;
 });
  });
@@ -235,5 +260,7 @@ function myvalues()
 <script>
  
 </script>
+
+
 </body>
 </html>

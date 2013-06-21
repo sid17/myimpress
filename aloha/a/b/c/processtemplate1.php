@@ -1,4 +1,10 @@
 <?php
+require_once("include/session.php");
+?>
+<?php
+confirm_logged_in();
+?>
+<?php
  require_once("include/dbconnection.php");
  ?>
 <?php
@@ -7,10 +13,10 @@ $content=$_POST['content1'];
 $username1=$_GET['username'];
 ?>
 <?php
-$result=mysql_query("SELECT * FROM siddhant ",$connection);
+$result=mysql_query("SELECT * FROM $username1 ",$connection);
 if (!$result)
 die("database query failed:".mysql_error());
-$sql = "UPDATE siddhant ".
+$sql = "UPDATE $username1 ".
        "SET content = '$content' ".
        "WHERE divid = '$id'" ;
 mysql_select_db('myimpress');

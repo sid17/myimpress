@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -43,8 +44,17 @@
 	</div>
 
 
+    
     <div class="container" style="margin-top:200px;">
 <form action="confirmlogin.php" method="POST" class="form-horizontal">
+  <?php
+  if(isset($_GET['logout'])&& $_GET['logout']==1)
+  {
+    global $chlogout;
+    $chlogout=1;
+    echo ("<h3 style=\"margin-left:150px;\">you are logged out</h3>");
+  }
+  ?>
   <div class="control-group">
     <label class="control-label" for="username"><b>username</b></label>
     <div class="controls">
@@ -58,7 +68,12 @@
       <input type="password"  name="password" class="input-xlarge btn-large" id="inputPassword" placeholder="Password">
     </div>
   </div>
-  <p style="color:red ;margin-left:180px" > either the username or password was incorrect</p>
+  <?php
+  if(!(isset($chlogout)&& $chlogout==1))
+  {
+  echo("<p style=\"color:red ;margin-left:180px\" > either the username or password was incorrect</p>");
+  }
+  ?>
   <div class="control-group">
     <div class="controls">
       <label class="checkbox">
