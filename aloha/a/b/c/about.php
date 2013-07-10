@@ -42,31 +42,24 @@
     </div>
 	</div>
 
-    <div class="container" style="margin-top:200px;">
-<form action="confirmlogin.php" method="POST" class="form-horizontal">
-  <div class="control-group">
-    <label class="control-label" for="username"><b>username</b></label>
-    <div class="controls">
-      <input class="input-xlarge  btn-large" type="text" id="username" name="username"  placeholder="Username">
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <label class="control-label " for="inputPassword"><b>Password</b></label>
-    <div class="controls">
-      <input type="password"  name="password" class="input-xlarge btn-large" id="inputPassword" placeholder="Password">
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <label class="checkbox">
-        <input type="checkbox"> Remember me
-      </label>
-      <span><button type="submit" class="btn btn-large"><span style="margin-left:25px;margin-right:25px">Log In</span></button><span class="pull-right" >Not Registered <a href="register.php" class="btn">Sign Up</a></span></span>
-       
-    </div>
-  </div>
-</form>
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div style="margin-top:150px" class="leaderboard">
+        <h1 ><span style="color:rgb(255,100,100)">ABOUT MY IMPRESS</span></h1>
+        <p >My Impress is a cloud based presentation application.My impress was started as a project under the Programmin Club , IIT Kanpur as a part of Summer Club Projects ,2013.My Impress was initiated as an alternative to Prezi that may require only web based tools
+        rather than using Flash. It does not require any external plugins as flash player.Any browser supporting CSS3 transforms and transitions supports My Impress Presentations.</p>
+        <p><a  href="login.php" class="btn btn-info btn-large"><span style="margin-left:15px;margin-right:15px">Log In</span></a><span class="pull-right" >Not Registered <a  href="register.php" class="btn btn-info">Sign Up</a></span></p>
+        
+      </div>
+
+      
+
+      <hr>
+
+      <footer>
+        <p>@ Siddhant Manocha</p>
+      </footer>
 
     </div> <!-- /container -->
 

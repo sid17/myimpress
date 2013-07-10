@@ -32,9 +32,9 @@
           
           <div class="nav-collapse">
             <ul style="margin-top:30px"class="nav">
-              <li class="active"><a href="#"><span style="font-size:30px"><b>HOME</b></span></a></li>
-              <li><a href="#about"><span style="font-size:30px"><b>ABOUT</b></span></a></li>
-              <li><a href="#contact"><span style="font-size:30px"><b>CONTACT</b></span></a></li>
+              <li class="active"><a href="homepage.php"><span style="font-size:30px"><b>HOME</b></span></a></li>
+              <li><a href="about.php"><span style="font-size:30px"><b>ABOUT</b></span></a></li>
+              <li><a href="contact.php"><span style="font-size:30px"><b>CONTACT</b></span></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>
@@ -45,7 +45,7 @@
 
       <!-- Main hero unit for a primary marketing message or call to action -->
       <div class="leaderboard">
-        <h1 ><span style="color:rgb(100,100,100);font-family:cursive">SIGN UP TO MY IMPRESS</span></h1>
+        <h1 ><span style="color:rgb(100,100,100);font-family:sans-serif">SIGN UP TO MY IMPRESS</span></h1>
         
       </div>
     </div>

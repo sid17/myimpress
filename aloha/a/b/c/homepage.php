@@ -32,9 +32,9 @@
           
           <div class="nav-collapse">
             <ul style="margin-top:30px"class="nav">
-              <li class="active"><a href="#"><span style="font-size:30px"><b>HOME</b></span></a></li>
-              <li><a href="#about"><span style="font-size:30px"><b>ABOUT</b></span></a></li>
-              <li><a href="#contact"><span style="font-size:30px"><b>CONTACT</b></span></a></li>
+              <li class="active"><a href="homepage.php"><span style="font-size:30px"><b>HOME</b></span></a></li>
+              <li><a href="about.php"><span style="font-size:30px"><b>ABOUT</b></span></a></li>
+              <li><a href="contact.php"><span style="font-size:30px"><b>CONTACT</b></span></a></li>
             </ul>
           </div><!--/.nav-collapse -->
         </div>

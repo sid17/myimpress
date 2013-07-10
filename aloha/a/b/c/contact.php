@@ -42,31 +42,28 @@
     </div>
 	</div>
 
-    <div class="container" style="margin-top:200px;">
-<form action="confirmlogin.php" method="POST" class="form-horizontal">
-  <div class="control-group">
-    <label class="control-label" for="username"><b>username</b></label>
-    <div class="controls">
-      <input class="input-xlarge  btn-large" type="text" id="username" name="username"  placeholder="Username">
-    </div>
-  </div>
-  
-  <div class="control-group">
-    <label class="control-label " for="inputPassword"><b>Password</b></label>
-    <div class="controls">
-      <input type="password"  name="password" class="input-xlarge btn-large" id="inputPassword" placeholder="Password">
-    </div>
-  </div>
-  <div class="control-group">
-    <div class="controls">
-      <label class="checkbox">
-        <input type="checkbox"> Remember me
-      </label>
-      <span><button type="submit" class="btn btn-large"><span style="margin-left:25px;margin-right:25px">Log In</span></button><span class="pull-right" >Not Registered <a href="register.php" class="btn">Sign Up</a></span></span>
+    <div class="container">
+
+      <!-- Main hero unit for a primary marketing message or call to action -->
+      <div style="margin-top:100px" class="leaderboard">
+        <h1 ><span style="color:rgb(255,100,100)">In case of any queries,</span></h1>
+       <h3>You may contact me at:<br/>
+       <a>smanocha@iitk.ac.in</a><br/>
+       <a>siddhantmanocha1994@gmail.com</a><br/>
+       Refer to the code on Github:<br/>
+       <a>https://github.com/sid17/cloudpresentationapplication</a>
+       </h3>
        
-    </div>
-  </div>
-</form>
+      </div>
+
+      <!-- Example row of columns -->
+     
+
+      <hr>
+
+      <footer>
+        <p>@ Siddhant Manocha</p>
+      </footer>
 
     </div> <!-- /container -->
 

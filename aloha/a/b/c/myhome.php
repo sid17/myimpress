@@ -8,6 +8,25 @@ confirm_logged_in();
 global $username1;
  $username1=$_GET['username'];
 ?>
+<?php
+ require_once("include/dbconnection.php");
+ //3.perform database  query
+$result=mysql_query("SELECT * FROM users WHERE username='$username1' ",$connection);
+if (!$result)
+die("database query failed:".mysql_error());
+//4. Use returned data
+global $selfcounter;
+global $tempcounter;
+
+while ($row=mysql_fetch_array($result))
+{
+$selfcounter=$row['selfcount'];
+$tempcounter=$row['tempcount'];
+}
+
+
+mysql_close($connection);
+?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -46,9 +65,9 @@ global $username1;
           
           <div class="nav-collapse">
             <ul style="margin-top:25px"class="nav">
-              <li class="active"><a href="#"><span style="font-size:30px"><b>HOME</b></span></a></li>
-              <li><a href="#about"><span style="font-size:30px"><b>ABOUT</b></span></a></li>
-              <li><a href="#contact"><span style="font-size:30px"><b>CONTACT</b></span></a></li>
+              <li class="active"><a href="homepage.php"><span style="font-size:30px"><b>HOME</b></span></a></li>
+              <li><a href="about.php"><span style="font-size:30px"><b>ABOUT</b></span></a></li>
+              <li><a href="contact.php"><span style="font-size:30px"><b>CONTACT</b></span></a></li>
             </ul>
             
              <p class="navbar-text pull-right">Logged in as <a href="#"><?php global $username;echo $username1; ?></a></p>
@@ -70,7 +89,7 @@ global $username1;
               <li class=" active"><a href="newpresentation.php?username=<?php $kj=$selfcounter+1;
               echo "{$username1}___{$kj}"; ?>&user=<?php echo $username1; ?>&pgcoun=<?php echo $selfcounter; ?>" style="height:40px;"><h4 >Create new</h4></a></li>
              
-              <li class=" active"><a href="tryaloha2.php?username=<?php echo $username1; ?>" style="height:40px;"><h4 >Templates</h4></a></li>
+              <li class=" active"><a href="templatelist.php?username=<?php echo $username1; ?>" style="height:40px;"><h4 >Templates</h4></a></li>
               
            </ul>
           </div><!--/.well -->

@@ -35,15 +35,11 @@ modern browsers </title> </head>
   
 <div id="menu" style="background-color:#E0E0E0;position:fixed;margin-top:0px;border-radius:20px;margin-left:10px;height:670px;width:150px">
  <input id="start" class="btn btn-inverse btn-large " style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
-         type="button" value="PRESENT" onclick="startprezi()"></input>
+         type="button" value="PRESENT" onclick="addpage()"></input>
 
  
  <input id="addpage" class="btn btn-success"style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
          type="button" value="ADD SLIDE" onclick="addpage()"></input>
- 
- <input id="delpage" class="btn btn-danger" style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
-         type="button" value="DELETE SLIDE" onclick="deletepage()"></input>
- 
  <input id="adjust" class="btn btn-primary" style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
          type="button" value="POSITION" ></input>
  <label style="margin-top:10px;margin-left:15px">BACKGROUND COLOR</label>
@@ -53,10 +49,14 @@ modern browsers </title> </head>
  <label style="margin-top:10px;">BACKGROUNDIMAGE <span style="margin-left:60px">URL</span></label>
  <input id="bgimage" placeholder="BACKGROUNDIMAGE URL" type="text"  class="input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px"></input>
  
- <a href="logout.php">LOGOUT</a></div>
+ <a href="logout.php">LOGOUT</a>
+<a href="#s1">next</a>
+<a href="#s2">next1</a></div>
+
+
  <div id="aftereffect"></div>
 
-<div id="impress">
+<div id="impress" >
   
  <?php
  require("include/dbconnection.php"); ?> <?php
@@ -75,10 +75,14 @@ while ($row=mysql_fetch_array($divresult))
 {$divrow=$row;}
 
 while ($row=mysql_fetch_array($conresult)) 
-{ 
+{
+ 
+echo "<div class=\"closediv\" style=\"width:770px;height:770px;margin-left:300px;background-color:white;border-radius:10px;margin-top:20px\"><a class=\"exit\"  onclick=\"sampledelete(this)\" ><span style=\"float:right;cursor:pointer;font-size:20px;margin-top:10px;margin-right:10px\">close<span></a>";
  echo "$divrow[0]"." id=\"$row[0]\" data-x=\"$row[1]\" data-y=\"$row[2]\" data-z=\"$row[3]\" data-rotate-x=\"$row[4]\"
  data-rotate-y=\"$row[5]\" data-rotate-z=\"$row[6]\" data-scale=\"$row[7]\""
  ." $divrow[1]"." $row[8]"." $divrow[2]";
+ echo"</div>";
+ 
 }
  mysql_close($connection); ?>
 
@@ -145,6 +149,9 @@ x.parentNode.removeChild(x);
 
 impress().init(); } </script>
 
+
+</script>
+
 <script>
  function addpage()
  {
@@ -173,17 +180,24 @@ $tryusername; ?>", $("#pageform").serialize(),
                                 pa1.onclick=addpage;
                                var i = document.getElementById('impress');
 var div = document.createElement('div');
-div.setAttribute('class', 'step');
-div.setAttribute('id', q);
-div.innerHTML="hello world";
-div.style.width = '700px';
-div.style.height = '700px';
-div.style.fontSize = '40px';
-div.style.padding = '40px';
-div.style.backgroundColor='white';
-div.style.textAlign = 'center';
-div.style.borderRadius = '50px';
+div.setAttribute('class', 'closediv');
+
+div.innerHTML="<a class=\"exit\"  onclick=\"sampledelete(this)\" ><span style=\"float:right;cursor:pointer;font-size:20px;margin-top:10px;margin-right:10px\">close<span></a><div class=\"step alert\" style=\"font-size:40px;width:700px;height:700px;padding:40px;text-align:center;background-color:white;border-radius:50px;color:black\" id=\""+q+"\" ><p>hello</p></div>";
+div.style.width = '770px';
+div.style.height = '770px';
+div.style.marginLeft = '300px';
+div.style.backgroundColor = 'white';
+div.style.borderRadius = '10px';
+div.style.marginTop = '20px';
+
+
 i.appendChild(div);
+
+
+
+
+
+
  for (var i=1;i<=1;i++) {
         Aloha.ready( function( ) {
                 // Prepare
@@ -214,37 +228,66 @@ i.appendChild(div);
 
 
 <script>
- function deletepage()
+function sampledelete(ele)
  {
-  
-            
-  var j=0;
-  var q=" ";
-  Aloha.ready(function( ) {
-                // Prepare
-                var $ = Aloha.jQuery,
-                        $body = $('body');
-            $(".step").each(function() {
-             j=j+1;
-                });
-           q="s"+(j);
-          
+  var ty=document.getElementsByClassName('exit');
+  for (asd=0;asd<ty.length;asd++)
+  {
+  ty[asd].onclick=null;
+  }
+var x=document.getElementsByClassName("step");
+var len=x.length-1;
+var current=ele.parentNode.getElementsByClassName('step');
+currid=current[0].id;
+var q=currid;
+var del=document.getElementById(currid);
+var deleteid=del.parentNode;
+deleteid.parentNode.removeChild(deleteid);
+
+
+
+ //alert(currid);
+ //alert(len);
             
             $('#delid').html(q);
+            
             $.post("deletepage.php?username=<?php echo $tryusername;
                     ?>", $("#delform").serialize(),
                    function(data) {
 			       if (data)
                                {
+                                 //alert("hello");
+                                 
                                
                                
-                                
-                              
-var del=document.getElementById(q);
-del.parentNode.removeChild(del);
-                               }
+  
+                              //alert(currid);
+var numid=currid.substring(1,currid.length);
+ //alert(numid);
+ //alert(len);
+var num=parseInt(numid);
+//alert(num);
+var zx=document.getElementsByClassName("step");
+//alert(zx.length);
+var yy;
+/*for (yy=num;yy<zx.length;yy++)
+{
+alert(zx[yy].id);
+}*/
+var i;
+for (i=num;i<=zx.length;i++)
+{
+ 
+zx[i-1].id="s"+i;
+//alert(zx[i-1].id);
+}
+  var ty1=document.getElementsByClassName('exit');
+  for (asd1=0;asd1<ty1.length;asd1++)
+  {
+  ty1[asd1].onclick=function(){sampledelete(this)};
+  }}
                    });
-  });
+ 
 
  }
 </script>
@@ -265,6 +308,12 @@ del.parentNode.removeChild(del);
 });
  });
 </script>
+<script>window.onload=function()
+{
+ var side=document.getElementsByClassName('aloha-sidebar-right');
+side[0].parentNode.removeChild(side[0]);
+}
+</script>
 <script src="jquery/jquery.js"></script>
  <script src="bootstrap/js/bootstrap.min.js"></script>
     <script src="bootstrap/js/bootstrap.js"></script>
@@ -283,11 +332,14 @@ del.parentNode.removeChild(del);
 <script src="bootstrap/js/bootstrap-typeahead.js"></script>  
 <script>
 $("#bgcolor").change(function(){
+   $("body").css('background-image','url( )');
+   $("#bgimage").val("");
    $("body").css("background-color",$("#bgcolor").val());
 });
 $("#pgcolor").change(function(){
   
   $(".step").css("background-color",$("#pgcolor").val());
+  $(".closediv").css("background-color",$("#pgcolor").val());
   
 });
 $("#bgimage").change(function(){
@@ -295,6 +347,30 @@ $("#bgimage").change(function(){
 ;
 });
 </script>
-
+<script>
+function helloworld(ele)
+{
+ 
+var x=document.getElementsByClassName("step");
+var len=x.length-1;
+var current=ele.parentNode.getElementsByClassName('step');
+currid=current[0].id;
+alert(currid);
+var numid=currid.substring(1,currid.length);
+var num=parseInt(numid);
+var zx=document.getElementsByClassName("step");
+var yy;
+for (yy=num;yy<zx.length;yy++)
+{
+alert(zx[yy].id);
+}
+var i;
+for (i=len;i>=num;i--)
+{
+var id2=x[i-1].id;
+x[i].id=id2;
+}
+}
+</script>
 
 </body> </html>

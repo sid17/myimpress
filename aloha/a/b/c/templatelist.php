@@ -1,8 +1,8 @@
 <?php
-require_once("include/session.php");
+//require_once("include/session.php");
 ?>
 <?php
-confirm_logged_in();
+//confirm_logged_in();
 ?>
 <?php
 global $username1;
@@ -87,7 +87,7 @@ mysql_close($connection);
               <li class=" active"><a href="selfpres.php?username=<?php echo $username1; ?>" style="height:40px;"><h4>My Presentations</h4></a></li>
               <li class=" active"><a href="newpresentation.php?username=<?php $kj=$selfcounter+1;
               echo "{$username1}___{$kj}"; ?>&user=<?php echo $username1; ?>&pgcoun=<?php echo $selfcounter; ?>" style="height:40px;"><h4 >Create new</h4></a></li>
-              <li class=" active"><a href="templatelist.php?username=<?php echo $username1; ?>" style="height:40px;"><h4 >Templates</h4></a></li>
+              <li class=" active"><a href="tryaloha2.php?username=<?php echo $username1; ?>" style="height:40px;"><h4 >Templates</h4></a></li>
               
            </ul>
           </div><!--/.well -->
@@ -99,34 +99,12 @@ mysql_close($connection);
   </div>
 
 <div class="row-fluid">
-  
-<?php
-echo ("<h1>Created presentations</h1>");
-if ($selfcounter==0)
-echo ("<h3>you dont have any existing created presentations</h3>");
-else
-{
-  
-  for ($i=1;$i<=$selfcounter;$i++)
-  {
-  echo(" <a style=\"margin:50px\"class=\"btn btn-info btn-large\" href=\"template4.php?username={$username1}___$i\">Presentation{$i}</a> ");
-  }
-}
-?>
+ 
+ <h1>Templates</h1>
+ <a style="margin:50px"class="btn btn-info btn-large" href="tryaloha2.php?username=<?php echo $username1; ?>">Template1</a>
+ <a style="margin:50px"class="btn btn-info btn-large" href="presentation2.php?username=<?php echo $username1; ?>">Template2</a>
+ <a style="margin:50px"class="btn btn-info btn-large" href="presentation3.php?username=<?php echo $username1; ?>">Template3</a>
 
-<?php
-echo ("<h1>Template Based  presentations</h1>");
-if ($tempcounter==0)
-echo ("<h3>you dont have any existing template  based presentations</h3>");
-else
-{
-  
-  for ($i=1;$i<=$tempcounter;$i++)
-  {
-  echo("work under process");
-  }
-}
-?>
 
 
 
