@@ -1,0 +1,9 @@
+//$sql = "";
+
+/* mysql_select_db('myimpress');
+$retval = mysql_query( "UPDATE orderofslide SET order = '$ord' WHERE id = 1", $conn );
+if(! $retval )
+{
+  die('Could not update data: ' . mysql_error());
+}
+echo "Updated data successfully\n";*/

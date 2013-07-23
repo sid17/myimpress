@@ -109,7 +109,7 @@ else
   
   for ($i=1;$i<=$selfcounter;$i++)
   {
-  echo(" <a style=\"margin:50px\"class=\"btn btn-info btn-large\" href=\"template4.php?username={$username1}___$i\">Presentation{$i}</a> ");
+  echo(" <a style=\"margin:50px\"class=\"btn btn-info btn-large\" href=\"final2.php?username={$username1}___$i\">Presentation{$i}</a> ");
   }
 }
 ?>

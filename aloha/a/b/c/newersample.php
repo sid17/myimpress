@@ -17,25 +17,15 @@
  <!--include aloha editor-->
  
 <?php
- require_once("include/alohainclude.php"); ?> <link
+ require_once("include/alohainclude.php"); ?>
+  <link rel="stylesheet" href="jquery/sortable1.css" />
+  <script src="jquery/sortable2.js"></script>
+  <script src="jquery/sortable3.js"></script>
+ <link
  href="include/impress-demo.css" rel="stylesheet" />
 <script type="text/javascript"
 src="jquery/jquery-1.4.2.min.js"></script>
-<link rel="stylesheet" href="jquery/sortable1.css" />
-  <script src="jquery/sortable2.js"></script>
-  <script src="jquery/sortable3.js"></script>
 <script type="text/javascript" src="jscolor/jscolor.js"></script>
-<style>
-  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
-  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
-  #sortable li span { position: absolute; margin-left: -1.3em; }
-  </style>
-  <script>
-  $(function() {
-    $( "#sortable" ).sortable({ containment: "#parent" });
-    $( "#sortable" ).disableSelection();
-  });
-  </script>
 
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
       <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
@@ -44,29 +34,25 @@ src="jquery/jquery-1.4.2.min.js"></script>
 
 <title>Aloha editable impress.js |
 presentation tool based on the power of CSS3 transforms and transitions in
-modern browsers </title> </head>
- <body style="background-color:#91CCFF;background-image:url('images/images.jpg')">
+modern browsers </title>
+<meta charset="utf-8" />
   
-<!--<div id="menu" style="background-color:#E0E0E0;position:fixed;margin-top:0px;border-radius:20px;margin-left:10px;height:670px;width:150px">
- <input id="start" class="btn btn-inverse btn-large " style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
-         type="button" value="PRESENT" onclick="addpage()"></input>
-
  
- <input id="addpage" class="btn btn-success"style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
-         type="button" value="ADD SLIDE" onclick="addpage()"></input>
- <input id="adjust" class="btn btn-primary" style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
-         type="button" value="POSITION" ></input>
- <label style="margin-top:10px;margin-left:15px">BACKGROUND COLOR</label>
- <input id="bgcolor" value="#D1F9FF" class="color {hash:true} input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px">
- <label style="margin-top:10px;margin-left:15px">SLIDE COLOR</label>
- <input id="pgcolor" value="#D1F9FF"  class="color {hash:true} input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px">
- <label style="margin-top:10px;">BACKGROUNDIMAGE <span style="margin-left:60px">URL</span></label>
- <input id="bgimage" placeholder="BACKGROUNDIMAGE URL" type="text"  class="input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px"></input>
- 
- <a href="logout.php">LOGOUT</a>
-<a href="#s1">next</a>
-<a href="#s2">next1</a></div>-->
-<div id="parent" style="width:200px">
+  
+<style>
+  #sortable { list-style-type: none; margin: 0; padding: 0; width: 60%; }
+  #sortable li { margin: 0 3px 3px 3px; padding: 0.4em; padding-left: 1.5em; font-size: 1.4em; height: 18px; }
+  #sortable li span { position: absolute; margin-left: -1.3em; }
+  </style>
+<script>
+  $(function() {
+    $( "#sortable" ).sortable({ containment: "#parent" });
+    $( "#sortable" ).disableSelection();
+  });
+  </script>
+</head>
+ <body style="background-color:#91CCFF;background-image:url('images/images.jpg')">
+   <div id="parent" style="width:200px">
 <div id="sortable" style="height:600px;width:200px;overflow:scroll;background-color:yellow">
   <div class="he" id="s1" style="width:100px;height:100px;background-color:rgb(250,200,200);position:relative;margin-top:20px">hello1</div>
   <div class="he" id="s2"  style="width:100px;height:100px;background-color:rgb(200,250,200);position:relative;margin-top:20px">hello2</div>
@@ -74,7 +60,7 @@ modern browsers </title> </head>
     <div  class="he" id="s4" style="width:100px;height:100px;background-color:rgb(250,200,200);position:relative;margin-top:20px">hello4</div>
      <div class="he" id="s5"  style="width:100px;height:100px;background-color:rgb(250,200,200);position:relative;margin-top:20px">hello5</div>
       <div class="he" id="s6"  style="width:100px;height:100px;background-color:rgb(250,200,200);position:relative;margin-top:20px">hello6</div>
-</div>
+</div></div>
  <script>
   
   $('#parent').mouseleave(
@@ -95,6 +81,27 @@ modern browsers </title> </head>
   }
   );
  </script>
+  
+<!--<div id="menu" style="background-color:#E0E0E0;position:fixed;margin-top:0px;border-radius:20px;margin-left:10px;height:670px;width:150px">
+ <input id="start" class="btn btn-inverse btn-large " style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
+         type="button" value="PRESENT" onclick="addpage()"></input>
+
+ 
+ <input id="addpage" class="btn btn-success"style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
+         type="button" value="ADD SLIDE" onclick="addpage()"></input>
+ <input id="adjust" class="btn btn-primary" style="margin-left:10px;margin-top:10px;width:120px;height:55px;"
+         type="button" value="POSITION" ></input>
+ <label style="margin-top:10px;margin-left:15px">BACKGROUND COLOR</label>
+ <input id="bgcolor" value="#D1F9FF" class="color {hash:true} input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px">
+ <label style="margin-top:10px;margin-left:15px">SLIDE COLOR</label>
+ <input id="pgcolor" value="#D1F9FF"  class="color {hash:true} input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px">
+ <label style="margin-top:10px;">BACKGROUNDIMAGE <span style="margin-left:60px">URL</span></label>
+ <input id="bgimage" placeholder="BACKGROUNDIMAGE URL" type="text"  class="input-small" style="margin-left:10px;margin-top:10px;width:120px;height:55px;border-radius:20px"></input>
+ 
+ <a href="logout.php">LOGOUT</a>
+<a href="#s1">next</a>
+<a href="#s2">next1</a></div>
+-->
 
  <div id="aftereffect"></div>
 
@@ -102,6 +109,10 @@ modern browsers </title> </head>
   
  <?php
  require("include/dbconnection.php"); ?> <?php
+//$username=$tryusername;
+
+//perform database query
+
 $username=$tryusername;
 $order =array();
 $order[0]=7;

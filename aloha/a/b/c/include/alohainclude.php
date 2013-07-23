@@ -7,7 +7,8 @@
 	<!-- add aloha -->
 	<script src="js/aloha-config.js"></script>
 	<script src="../../lib/require.js"></script>
-	<script src="../../lib/vendor/jquery-1.7.2.js"></script>
+       <script src="../../lib/vendor/jquery-1.7.2.js"></script>
+	
     <script>
 	  // Passing jQuery into Aloha explicitly is not necessary since
 	  // newer versions of jQuery will make a call to define which will
@@ -53,5 +54,8 @@
 	                            extra/cite"></script>
 	<!-- Include the fake-jquery to make sure that Aloha works even if
 		 the user includes his own global jQuery after aloha.js. -->
-	<script src="fake-jquery.js"></script>
+                 <script src="fake-jquery.js"></script>
+  
+                 
+                
     

@@ -31,13 +31,20 @@ $sql = "CREATE TABLE $name( ".
        "content TEXT NOT NULL,  ".
        "PRIMARY KEY ( divid )) ";
 
+    $sql2 = "INSERT INTO orderofslide (username, neword)
+values ('$name',' ')";  
 mysql_select_db('myimpress');
 $retval = mysql_query( $sql, $conn );
+$retval2 = mysql_query( $sql2, $conn );
+
 if(! $retval )
 {
   die('Could not create table: ' . mysql_error());
 }
-
+if (!$retval2)
+{
+   die('Could not enter into  table: ' . mysql_error());
+}
 $result=mysql_query("SELECT * FROM users ",$conn);
 if (!$result)
 die("database query failed:".mysql_error());
@@ -58,4 +65,3 @@ mysql_close($conn);
 
 
 
-mysql_close($connection);

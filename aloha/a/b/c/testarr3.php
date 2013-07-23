@@ -37,7 +37,7 @@ $usr=$_GET['username'];
   <script src="jquery/jquery-ui1.10.3.js"></script>
     <style type="text/css">
     .draggable {
-      width: 140px;
+      width: 168px;
       height: 190px;
       
       
@@ -49,7 +49,7 @@ $usr=$_GET['username'];
 </head>
 <body style="background-color:#D2DBF7">
   <input type="button" style="height:55px;width:120px;cursor:pointer;border-radius:20px;background-color:#2FCFF7;font-size:14px" onclick=" myvalues()" value="POSITION"></input>
-   <input type="button"  id="next" value="PRESENT" style="float:right;height:55px;width:120px;cursor:pointer;border-radius:20px;background-color:#2FCFF7;font-size:14px"></input>
+   <input type="button"  id="next" value="PRESENT" style="float:right;height:55px;width:120px;cursor:pointer;border-radius:20px;background-color:#2FCFF7;font-size:14px;display:none"></input>
 <div id="container" style="width: 2800px; height: 1400px; border: 5px solid #737373;border-radius:50px; position: absolute;margin-left:20px;margin-bottom:20px;margin-right:20px;margin-top:20px;" >
 
 <?php 
@@ -58,7 +58,7 @@ for($j=0;$j<=$pagecount;$j++)
   $k=$j+1;
 echo("<div class='hi' style=\"float:left ;margin:50px\">
 <div class='draggable'>
-<div  id='hello'style=\"width: 140px; height: 140px; background-color: #4A9FF5;border-radius:20px; cursor: move; position: absolute;\">
+<div  id='hello'style=\"width: 168px; height: 140px; background-color: #4A9FF5;border-radius:20px; cursor: move; position: absolute;\">
 <p style=\"position:absolute;margin-top:50px;margin-left:50px\"><span style=\"font-family:cursive\">slide{$k}</span></p>
 <div id='count' style=\"color: black\"> </div></div>
 <form id='form'style=\"position:absolute;margin-top:140px;\">
@@ -165,7 +165,7 @@ formobj{$i}.find(':input').each(function(){
         {
           degz{$i}=0;
         }
-         alert(posi{$i}+\" \"+posi{$i}+\" \"+degx{$i}+\" \"+degy{$i}+\" \"+degz{$i}+\" \"+sc{$i});
+         
         helobj{$i}.css({
         transform: 'scale('+sc{$i}+') rotateX('+degx{$i}+'deg) rotateY('+degy{$i}+'deg) rotateZ('+degz{$i}+'deg)'
         
@@ -241,11 +241,17 @@ function myvalues()
        
       $(document).ready(function()
  {
+  var x=document.getElementById('next');
+  x.style.display="block";
  $('#next').click(function()
 {
-            
-    var url="template4.php?username=<?php echo $usr;
-                    ?>"
+   
+   
+    var url="newsave.php?username=<?php echo $usr;
+                    ?>&bcolor=<?php echo $_GET['bcolor'];
+                    ?>&scolor=<?php echo $_GET['scolor'];
+                    ?>&bimage=<?php echo $_GET['bimage'];
+                    ?>";
     window.location = url;
 });
  });

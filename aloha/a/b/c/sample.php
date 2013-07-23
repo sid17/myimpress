@@ -17,7 +17,9 @@
  <!--include aloha editor-->
  
 <?php
- require_once("include/alohainclude.php"); ?> <link
+ require_once("include/alohainclude.php");
+ ?>
+ <link
  href="include/impress-demo.css" rel="stylesheet" />
 <script type="text/javascript"
 src="jquery/jquery-1.4.2.min.js"></script>
@@ -26,7 +28,8 @@ src="jquery/jquery-1.4.2.min.js"></script>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
       <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet">
         <link href="bootstrap/css/bootstrap.css" rel="stylesheet">
-          <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet"> <link href="twitter-bootstrap-v2/docs/assets/css/example-fixed-layout.css" rel="stylesheet">
+          <link href="bootstrap/css/bootstrap-responsive.css" rel="stylesheet">
+           <link href="twitter-bootstrap-v2/docs/assets/css/example-fixed-layout.css" rel="stylesheet">
 
 <title>Aloha editable impress.js |
 presentation tool based on the power of CSS3 transforms and transitions in
