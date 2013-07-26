@@ -762,6 +762,7 @@ x[i].id=id2;
      side[0].parentNode.removeChild(side[0]);
      if ((document.getElementById("q1"))) {
      document.getElementById("q1").style.border="5px solid black";
+     $('#s1').clone().appendTo('#sortable').css('-webkit-transform', 'scale(.125, .125)');
      }
    }
 </script>

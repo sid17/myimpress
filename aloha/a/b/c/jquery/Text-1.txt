@@ -1,0 +1,1 @@
+//alert(posi{$i}+\" \"+posi{$i}+\" \"+degx{$i}+\" \"+degy{$i}+\" \"+degz{$i}+\" \"+sc{$i});
