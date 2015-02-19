@@ -1,4 +1,4 @@
-cloudpresentationapplication
+Myimpress:cloudpresentationapplication
 ============================
 
 The given project intends to make a cloud based presentation application , something on lines of prezi . It utilises HTML , 
