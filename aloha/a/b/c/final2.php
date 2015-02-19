@@ -1,5 +1,7 @@
  
-
+<?php
+ require_once("include/dbconnection.php");
+?>
 
 <!-- obtain the username-->
 <?php global $tryusername;
@@ -8,18 +10,18 @@
 $tryusername1=(substr($tryusername, 0, $pos));  
 ?>
 <?php
- $connection=mysql_connect("localhost","root");
-if (!$connection)
-{
-    die("Database connection failed:".mysql_error());
-}
+//  $connection=mysql_connect("localhost","root");
+// if (!$connection)
+// {
+//     die("Database connection failed:".mysql_error());
+// }
 
-//2.Select a database
-$db_select=mysql_select_db("myimpress",$connection);
-if (!$db_select)
-{
-    die("Database connection failed:".mysql_error());
-}
+// //2.Select a database
+// $db_select=mysql_select_db("myimpress",$connection);
+// if (!$db_select)
+// {
+//     die("Database connection failed:".mysql_error());
+// }
  //3.perform database  query
 $res=mysql_query("SELECT * FROM users WHERE username='$tryusername1' ",$connection);
 if (!$res)

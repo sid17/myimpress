@@ -4,28 +4,30 @@ require_once("include/session.php");
 <?php
 confirm_logged_in();
 ?>
-
 <?php
-$dbhost = 'localhost';
-$dbuser = 'root';
-$conn = mysql_connect($dbhost, $dbuser);
+ require_once("include/dbconnection.php");
+?>
+<?php
+// $dbhost = 'localhost';
+// $dbuser = 'root';
+// $connection = mysql_connect($dbhost, $dbuser);
 $id=$_POST['delid'];
 $usr=$_GET['username'];
-if(! $conn )
-{
-  die('Could not connect: ' . mysql_error());
-}
+// if(! $connection )
+// {
+//   die('Could not connect: ' . mysql_error());
+// }
 $sql = "DELETE FROM $usr ".
        "WHERE  divid = '$id' " ;
 
-mysql_select_db('myimpress');
-$retval = mysql_query( $sql, $conn );
+// mysql_select_db('myimpress');
+$retval = mysql_query( $sql, $connection );
 if(! $retval )
 {
   die('Could not delete data: ' . mysql_error());
 }
 
-$result = mysql_query("SELECT * FROM $usr", $conn);
+$result = mysql_query("SELECT * FROM $usr", $connection);
 $num_rows = mysql_num_rows($result);
 //echo($num_rows);
 $numid=substr($id, 1);
@@ -42,12 +44,12 @@ $sql1 = "UPDATE $usr ".
        "SET divid= '$setid' ".
        "WHERE divid = '$existid'" ;
 mysql_select_db('myimpress');
-$retval1 = mysql_query( $sql1, $conn );
+$retval1 = mysql_query( $sql1, $connection );
 if(! $retval1 )
 {
   die('Could not update data: ' . mysql_error());
 }
 }
 echo true ;
-mysql_close($conn);
+mysql_close($connection);
 ?>

@@ -7,6 +7,8 @@ confirm_logged_in();
 <?php
  require_once("include/dbconnection.php");
  ?>
+
+ 
 <?php
 $id=$_POST['divid'];
 $content=$_POST['content1'];
@@ -42,7 +44,7 @@ if(! $retval )
 else
 {
  $sql ="INSERT INTO presentation1(username, $id) values ('$username1','$content')";
-mysql_select_db('test_db');
+// mysql_select_db('test_db');
 $retval = mysql_query( $sql, $connection );
 if(! $retval )
 {

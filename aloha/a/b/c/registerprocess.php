@@ -115,6 +115,9 @@ if(! $retval )
 {
   die('Could not enter data: ' . mysql_error());
 }
+
+
+
 header("Location:registered.php");
 }
 mysql_close($connection);
